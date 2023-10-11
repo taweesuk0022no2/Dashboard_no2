@@ -1,11 +1,12 @@
-let gulp = require('gulp'),
-    concat = require('gulp-concat'),
+
+let concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     sass = require('gulp-ruby-sass'),
     autoprefixer = require('gulp-autoprefixer')
 
 const DEST = 'build/';
+const gulp = require('gulp');
 
 const browserSync = require('browser-sync').create();
 
@@ -52,7 +53,7 @@ gulp.task('sass-minify', function() {
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
-            baseDir: './build'
+            baseDir: './'
         },
         startPath: './production/index.html'
     });
