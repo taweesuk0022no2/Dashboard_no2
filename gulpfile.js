@@ -86,20 +86,20 @@ gulp.task('build', gulp.series('browser-sync', function(done) {
 gulp.task('deploy', function(done) {
     gulp.src('src/scss/custom.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('build/css'));
+        .pipe(gulp.dest('deploy'));
 
     gulp.src('src/scss/daterangepicker.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('build/css'));
+        .pipe(gulp.dest('deploy'));
 
     gulp.src('src/js/custom.js')
         .pipe(uglify())
-        .pipe(gulp.dest('build/js'));
+        .pipe(gulp.dest('deploy'));
 
     gulp.src('src/js/examples.js')
         .pipe(uglify())
-        .pipe(gulp.dest('build/js'));
-        
+        .pipe(gulp.dest('deploy'));
+
     done(); // บอก Gulp ว่า task เสร็จสิ้น
 });
 
