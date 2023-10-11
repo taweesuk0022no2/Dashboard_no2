@@ -82,5 +82,27 @@ gulp.task('build', gulp.series('browser-sync', function(done) {
     done(); // บอก Gulp ว่า task เสร็จสิ้น
 }));
 
+// Task สำหรับ deploy โปรเจค
+gulp.task('deploy', function(done) {
+    gulp.src('src/scss/custom.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('build/css'));
+
+    gulp.src('src/scss/daterangepicker.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('build/css'));
+
+    gulp.src('src/js/custom.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('build/js'));
+
+    gulp.src('src/js/examples.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('build/js'));
+        
+    done(); // บอก Gulp ว่า task เสร็จสิ้น
+});
+
+
 // Default Task
 gulp.task('default', gulp.series('browser-sync', 'watch'));
