@@ -1,5 +1,6 @@
 [build]
   base = "/"
-  publish = "/opt/build/repo/"
-  command = "npm run build"
+  publish = "/opt/build/repo/dist"
+  command = "gulp build"
   publishOrigin = "ui"
+  commandOrigin = "ui"
