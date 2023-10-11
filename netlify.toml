@@ -1,5 +1,5 @@
 build:
     command: gulp build
     commandOrigin: config
-    publish: /build
+    publish: build
     publishOrigin: config
