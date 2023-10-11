@@ -50,10 +50,6 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task('another-task', gulp.series('browser-sync', function() {
-    console.log('Running another-task');
-}));
-
 gulp.task('watch', function() {
   // Watch .html files
   gulp.watch('production/*.html', browserSync.reload);
@@ -90,3 +86,7 @@ gulp.task('deploy', function(done) {
 
 // Default Task
 gulp.task('default', gulp.series('browser-sync', 'watch'));
+
+gulp.task('another-task', gulp.series('browser-sync', function() {
+    console.log('Running another-task');
+}));
