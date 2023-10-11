@@ -1,3 +1,5 @@
 [build]
   command = "gulp build"
   publish = "build"
+  commanOrigin = "config"
+  publishOrigin = "config"
