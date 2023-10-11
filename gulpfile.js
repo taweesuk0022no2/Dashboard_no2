@@ -63,20 +63,20 @@ gulp.task('watch', function() {
 gulp.task('build', gulp.series('browser-sync', function(done) {
     // ตัวอย่างโค้ดสำหรับการ compile CSS ด้วย gulp-sass
     gulp.src('src/scss/custom.scss')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(scss().on('error', sass.logError))
         .pipe(gulp.dest('build/css'));
 
     gulp.src('src/scss/daterangepicker.scss')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(scss().on('error', sass.logError))
         .pipe(gulp.dest('build/css'));
 
     gulp.src('src/js/custom.js')
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('build/js'));
 
     gulp.src('src/js/examples.js')
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('build/js'));
 
 
     done(); // บอก Gulp ว่า task เสร็จสิ้น
