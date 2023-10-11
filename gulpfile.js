@@ -68,12 +68,12 @@ gulp.task('build', gulp.series('browser-sync', function(done) {
     // ตัวอย่างโค้ดสำหรับการ compile CSS ด้วย gulp-sass
     gulp.src('src/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('build/css'));
 
     // ตัวอย่างโค้ดสำหรับการ minify JavaScript ด้วย Uglify
     gulp.src('src/js/*.js')
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('build/js'));
 
 
     done(); // บอก Gulp ว่า task เสร็จสิ้น
