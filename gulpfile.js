@@ -63,11 +63,11 @@ gulp.task('watch', function() {
 gulp.task('build', gulp.series('browser-sync', function(done) {
     // ตัวอย่างโค้ดสำหรับการ compile CSS ด้วย gulp-sass
     gulp.src('src/scss/custom.scss')
-        .pipe(scss().on('error', sass.logError))
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('build/css'));
 
     gulp.src('src/scss/daterangepicker.scss')
-        .pipe(scss().on('error', sass.logError))
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('build/css'));
 
     gulp.src('src/js/custom.js')
