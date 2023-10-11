@@ -1,5 +1,5 @@
-[build]
-  command = "gulp build"
-  publish = "build"
-  commanOrigin = "config"
-  publishOrigin = "config"
+build:
+    command: gulp build
+    commandOrigin: config
+    publish: /build
+    publishOrigin: config
