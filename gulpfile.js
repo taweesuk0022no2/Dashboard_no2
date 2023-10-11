@@ -62,21 +62,14 @@ gulp.task('watch', function() {
 // Task สำหรับ build โปรเจค
 gulp.task('build', gulp.series('browser-sync', function(done) {
     // ตัวอย่างโค้ดสำหรับการ compile CSS ด้วย gulp-sass
-    gulp.src('src/scss/custom.scss')
+    gulp.src('src/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('build/css'));
+        .pipe(gulp.dest('dist/css'));
 
-    gulp.src('src/scss/daterangepicker.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('build/css'));
-
-    gulp.src('src/js/custom.js')
+    // ตัวอย่างโค้ดสำหรับการ minify JavaScript ด้วย Uglify
+    gulp.src('src/js/*.js')
         .pipe(uglify())
-        .pipe(gulp.dest('build/js'));
-
-    gulp.src('src/js/examples.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('build/js'));
+        .pipe(gulp.dest('dist/js'));
 
 
     done(); // บอก Gulp ว่า task เสร็จสิ้น
@@ -84,20 +77,7 @@ gulp.task('build', gulp.series('browser-sync', function(done) {
 
 // Task สำหรับ deploy โปรเจค
 gulp.task('deploy', function(done) {
-    gulp.src('src/scss/custom.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('deploy'));
-
-    gulp.src('src/scss/daterangepicker.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('deploy'));
-
-    gulp.src('src/js/custom.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('deploy'));
-
-    gulp.src('src/js/examples.js')
-        .pipe(uglify())
+    gulp.src('build/**/*')
         .pipe(gulp.dest('deploy'));
 
     done(); // บอก Gulp ว่า task เสร็จสิ้น
