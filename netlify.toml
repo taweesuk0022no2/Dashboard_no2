@@ -1,1 +1,3 @@
-gulp build
+[build]
+  command = "gulp build"
+  publish = "build"
