@@ -1,5 +1,4 @@
-let gulp = require('gulp'),
-    concat = require('gulp-concat'),
+ let concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     sass = require('gulp-ruby-sass'),
@@ -7,6 +6,7 @@ let gulp = require('gulp'),
 
 const DEST = 'build/';
 
+const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 
 gulp.task('scripts', function() {
