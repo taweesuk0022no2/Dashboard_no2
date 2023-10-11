@@ -27,14 +27,6 @@ gulp.task('sass', function() {
     return compileSASS('custom.css', {});
 });
 
-function compileSASS(filename, options) {
-    return sass('src/scss/*.scss', options)
-        .pipe(autoprefixer('last 2 versions', '> 5%'))
-        .pipe(concat(filename))
-        .pipe(gulp.dest(DEST+'/css'))
-        .pipe(browserSync.stream());
-}
-
 // TODO: Maybe we can simplify how sass compile the minify and unminify version
 let compileSASS = function (filename, options) {
   return sass('src/scss/*.scss', options)
@@ -48,10 +40,6 @@ gulp.task('default', gulp.parallel('browser-sync', 'watch'));
 
 gulp.task('sass', function() {
     return compileSASS('custom.css', {});
-});
-
-gulp.task('sass-minify', function() {
-    return compileSASS('custom.min.css', {style: 'compressed'});
 });
 
 gulp.task('browser-sync', function() {
