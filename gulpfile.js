@@ -9,7 +9,7 @@ const DEST = 'build/';
 
 const browserSync = require('browser-sync').create();
 
-gulp.task('scripts', function() {
+gulp.task('scripts', gulp.series('browser-sync', function() {
     return gulp.src([
         'src/js/helpers/*.js',
         'src/js/*.js',
@@ -20,7 +20,15 @@ gulp.task('scripts', function() {
       .pipe(uglify())
       .pipe(gulp.dest(DEST+'/js'))
       .pipe(browserSync.stream());
-});
+}));
+
+gulp.task('sass', gulp.series('browser-sync', function() {
+    return sass('src/scss/*.scss', {})
+        .pipe(autoprefixer('last 2 versions', '> 5%'))
+        .pipe(concat('custom.css'))
+        .pipe(gulp.dest('build/css'))
+        .pipe(browserSync.stream());
+}));
 
 // TODO: Maybe we can simplify how sass compile the minify and unminify version
 let compileSASS = function (filename, options) {
